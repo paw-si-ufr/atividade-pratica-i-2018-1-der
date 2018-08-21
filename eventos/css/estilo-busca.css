@@ -101,17 +101,18 @@ footer {
     border: none;  
     padding: 15px 20px;
     text-align: center;
-   
     display: inline-block;
     margin: 6px 8px;
     cursor: pointer;
     font-size: 15px;
 }
-.btn-busca a {
-      color: white;
+
+
+a {
+    color: white;
      text-decoration: none;
 }
-.btn-busca a:visited {
+a:visited {
       color: white;
      text-decoration: none;
 }
