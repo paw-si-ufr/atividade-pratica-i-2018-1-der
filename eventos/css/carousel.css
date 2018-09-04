@@ -11,21 +11,12 @@ body{
   
 }
 
-#wrapper{
+.wrapper{
   background-color: #404040; 
   max-width:100%; 
   position:relative;
 }
-#wrapper1{
-  background-color: #404040; 
-  max-width:100%; 
-  position:relative;
-}
-#wrapper2{
-  background-color: #404040; 
-  max-width:100%; 
-  position:relative;
-}
+
 .controle{
     top: 200px;
 }
@@ -116,25 +107,11 @@ padding:50px 40px;
 
 
 
-#content{
+.content{
 position:relative;
     
 }
 
-#content1{
-position:relative;
-    
-}
-
-#content2{
-position:relative;
-    
-}
-
-#content3{
-position:relative;
-    
-}
 
 .card{
   width: 286px;;
@@ -194,6 +171,17 @@ position:relative;
      padding: 0px 40px;
   
     }
+    .wrapper{
+     background-color: #4067b8;
+     max-width:100%; 
+     position:relative;
+    }
+    .container-fluid{
+     max-width:100%;
+        
+    }
+ 
+
      
      
   
