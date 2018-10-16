@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+.principal{
+    background-color: darkgrey;
+    padding: 0px;
+}
+
+.slide-topo{
+ /*background: url(../img/grid.png), linear-gradient(to right, rgba(40, 10, 90, 0.85), rgba(255, 193, 187, .85));*/
+
+    width: 100%;
+    height: 60%;
+
+}
+.slide-rodape{ 
+    
+    width: 100%;
+    height: 60%;
+    background-color: beige;  
+}
+
+.evt-recente{  
+    font-size: 20pt;
+    
+}
+.contato{
+    background-color: darkgrey;
+    width: 100%;
+    height: 30%;
+}
+
+
+.btn-buscar-top {
+    width: 25px;
+    height: 25px;
+    background: url(../img/lupa-icon-01.svg) no-repeat;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.form-busca {    
+    margin-right: 30px;
+}
+div {
+    display: block;
+}
+.form-busca-site {
+    display: flex;
+    margin: 0;
+    position: relative;
+}
+form {
+    display: block;
+ 
+}
+.form-busca .btn-text-top {
+    background-color: transparent;
+    color: white;
+    box-shadow: none;
+    border: 2px solid white;
+    font-weight: 500;
+    height: 46px;
+    border-radius: 23px;
+}
+.row prox{
+    background-color: cadetblue;
+}

@@ -7,10 +7,11 @@ body {
     margin: 0px;
 }
 
+
 header {
     grid-area: header;
     background-color: #f1f1f1;
-    padding: 30px;
+    padding: 0px;
     text-align: center;
     font-size: 35px;
 }
@@ -30,9 +31,11 @@ header li{
 }
 
 
+
+
 .grid-container {
     display: grid;
-    grid-template-areas: 'header header header header header header' 'colesq-1 colesq-1 colmeio-1 colmeio-1 coldir-1 coldir-1' 'colesq-2 colesq-2 colmeio-2 colmeio-2 coldir-2 coldir-2' 'footer footer footer footer footer footer';
+    grid-template-areas: 'header header header header header header''topo topo topo topo topo topo''colesq-1 colesq-1 colmeio-1 colmeio-1 coldir-1 coldir-1' 'colesq-2 colesq-2 colmeio-2 colmeio-2 coldir-2 coldir-2' 'footer footer footer footer footer footer';
     grid-column-gap: 20px;
     padding: 0px;
     text-align: center;
@@ -46,6 +49,14 @@ header li{
 .coldir-2 {
     background-color: #fafafa;
     margin: 20px;
+}
+.topo-principal{
+    grid-area: topo;
+    width: 100%;
+    height: 60%;
+    background: #de20b5;
+    align-content: center;
+    text-align: center;
 }
 
 .colesq-1 {
@@ -81,6 +92,7 @@ header li{
 
     font-size: 20pt;
 }
+
 
 
 /* estilo rodapé */
@@ -140,7 +152,7 @@ td {
 
 @media (max-width: 768px) {
     .grid-container {
-        grid-template-areas: 'header header header header header header' 'colesq-1 colesq-1 colesq-1 colesq-1 colesq-1 colesq-1' 'colmeio-1 colmeio-1 colmeio-1 colmeio-1 colmeio-1 colmeio-1' 'coldir-1 coldir-1 coldir-1 coldir-1 coldir-1 coldir-1' 'colesq-2 colesq-2 colesq-2 colesq-2 colesq-2 colesq-2' 'colmeio-2 colmeio-2 colmeio-2 colmeio-2 colmeio-2 colmeio-2' 'coldir-2 coldir-2 coldir-2 coldir-2 coldir-2 coldir-2' 'footer footer footer footer footer footer';
+        grid-template-areas: 'header header header header header header''topo topo topo topo topo topo' 'colesq-1 colesq-1 colesq-1 colesq-1 colesq-1 colesq-1' 'colmeio-1 colmeio-1 colmeio-1 colmeio-1 colmeio-1 colmeio-1' 'coldir-1 coldir-1 coldir-1 coldir-1 coldir-1 coldir-1' 'colesq-2 colesq-2 colesq-2 colesq-2 colesq-2 colesq-2' 'colmeio-2 colmeio-2 colmeio-2 colmeio-2 colmeio-2 colmeio-2' 'coldir-2 coldir-2 coldir-2 coldir-2 coldir-2 coldir-2' 'footer footer footer footer footer footer';
         float: none;
         text-align: center;
         width: 100%;

@@ -1,0 +1,21 @@
+.card{
+  width: 30%;;
+
+  background:#fff;
+  float:left;
+  margin-right:10px;
+  margin-bottom:10px;
+  cursor:pointer;
+  transform: scale(1);
+  visibility:visible;
+ 
+  
+}
+.todos-card{
+	display: flex;
+  align-items: flex-start;
+	padding: 20px;
+}
+.card-individual{
+	padding: 10px;
+}

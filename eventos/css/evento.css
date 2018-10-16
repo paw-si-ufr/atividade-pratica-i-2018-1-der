@@ -1,59 +1,13 @@
-@charset "UTF-8";
-
 body {
+    height:100%;
 	font-family: sans-serif;
-
-
+    background-color: #e7e7e7;
 }
 
 
-
-.container-princ-evento{
-
-    display: grid;
-    grid-gap: 5px;
-    grid-template-rows: 50px 200px 200px 200px 70px;
-    grid-template-areas:        
-        "menu menu menu"
-        "cabecalho cabecalho cabecalho"
-        "evento evento evento"
-        "evento evento evento"
-        "rodape rodape rodape";
-}
-
-.cabecalho{
-    align-content: center;
-    padding: 50px;
-    grid-area: cabecalho;   
-   
-
-}
-
-.menu{
-    grid-area: menu;
-    background-color: darkgrey;
-    padding: 10px;
-}
-a{
-    font-family: sans-serif;
-    text-decoration: none;
-    color: black;
-    margin: 20px;
-}
-
-.evento{
-    grid-area: evento;
-    background-color: antiquewhite;
-    padding: 10px;
-}
-span{
-    font-family: sans-serif;
-    margin: 10px;
-}
-
-
-.rodape{
-    grid-area: rodape;
-    background-color: dimgray;
-    padding: 10px;
+#rodape{
+    background-color: #a9a9a9;
+    position:absolute;
+    bottom:0;
+    width:100%;
 }

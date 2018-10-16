@@ -1,5 +1,11 @@
 <?php
    session_start();//iniciando sessao 
+
+
+   if(isset($_GET['sair'])){ //isset: se existir
+      session_destroy();
+      header("Location: index.php");
+   }
 ?>
 
 <!--Estrutura utilizando:
@@ -18,7 +24,7 @@
       <header>
          <!--  menu modificado utilizando bootstrap: https://getbootstrap.com/docs/4.1/components/navbar/  -->
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.php">
             <img src="img/ufmt.svg" width="30" height="30" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,18 +39,39 @@
                  
                </ul>
                <div class="form-busca">
-                  <form class="form-busca-site" action="busca.html">
-                     <input class="form-control mr-sm-2" type="text" name="txtsearch" placeholder="Buscar">
+                  <form class="form-busca-site">
+                     <input class="form-control mr-sm-2" type="text" name="palavra" placeholder="Buscar">
                      <button class="btn-buscar-top" type="submit"></button>
                   </form>
                </div>
-               <ul class="navbar-nav mr-rigth">
-                  <li class="nav-item">
-                     <a class="nav-link" href="evento.html">Cadastre-se</a>
+            <ul class="navbar-nav mr-rigth">                  
+
+                     <?php if(isset($_SESSION['logado'])){ ?>
+                       <ul class="navbar-nav mr-rigth">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuário: <?php echo $_SESSION['nome_usuario'] ?></a>
+                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="adm.php">Minha Conta</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Alterar meus dados</a>                        
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="?sair">Sair</a>
+                      </div>
                   </li>
-                  <li class="nav-item">
-                     <button type="button" id="botao" class="btn btn-info">Login</button>                        
-                  </li>
+                  
+               </ul>
+
+                     <?php } else{ ?>
+
+                         <li class="nav-item">
+                           <a class="nav-link" href="cad_user.php">Cadastre-se</a>
+                         </li>
+                         <li class="nav-item">
+                           <button type="button" id="botao" class="btn btn-info">Login</button>                        
+                         </li>
+                     <?php } ?>
+
+                     
                </ul>
             </div>
          </nav>
@@ -77,12 +104,12 @@
                      </span>  
                      <ul id="content">
                         <li class="card">
-                           <div class="md-3">
+                           <div class="md-3 card">
                               <img class="card-img-top" src="img/card_bg_curso.jpg" alt="Card image cap">
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -92,7 +119,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -102,7 +129,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -112,7 +139,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -122,7 +149,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -132,7 +159,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -142,7 +169,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -152,7 +179,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -162,7 +189,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -172,7 +199,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -182,7 +209,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -192,7 +219,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -202,7 +229,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -212,7 +239,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -222,7 +249,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -232,7 +259,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -242,7 +269,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -252,7 +279,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -262,7 +289,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -272,7 +299,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -282,7 +309,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -292,7 +319,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -302,7 +329,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -331,7 +358,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -341,7 +368,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -351,7 +378,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -361,7 +388,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -371,7 +398,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -381,7 +408,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -391,7 +418,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -401,7 +428,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -411,7 +438,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -421,7 +448,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -431,7 +458,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -441,7 +468,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -451,7 +478,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -461,7 +488,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -471,7 +498,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -481,7 +508,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -491,7 +518,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -501,7 +528,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -511,7 +538,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -521,7 +548,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -531,7 +558,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -541,7 +568,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -551,7 +578,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -580,7 +607,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -590,7 +617,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -600,7 +627,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -610,7 +637,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -620,7 +647,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -630,7 +657,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -640,7 +667,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -650,7 +677,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -660,7 +687,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -670,7 +697,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -680,7 +707,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -690,7 +717,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -700,7 +727,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -710,7 +737,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -720,7 +747,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -730,7 +757,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -740,7 +767,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -750,7 +777,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -760,7 +787,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -770,7 +797,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -780,7 +807,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -790,7 +817,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
@@ -800,7 +827,7 @@
                               <div class="card-body">
                                  <h5 class="card-title">Inovação Tecnologica</h5>
                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="evento.html" class="btn btn-primary">Saiba mais</a>
+                                  <a href="evento.php" class="btn btn-primary">Saiba mais</a>
                               </div>
                            </div>
                         </li>
