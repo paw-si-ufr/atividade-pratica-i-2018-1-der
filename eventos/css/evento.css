@@ -1,13 +1,27 @@
 body {
     height:100%;
 	font-family: sans-serif;
-    background-color: #e7e7e7;
+    
+}
+.topo-capa{
+	background-color: #a9a9a9;	
+}
+.conteudo-principal{
+
+	padding: 20px;
+	background-color: #e7e7e7;
+}
+.linha-divisao{
+	margin-top: 20px; 
+	border-top: 1px solid #9d9ea0;
+
+}
+.rodape{
+	display:  block;
+    background-color: #a9a9a9;
+   
 }
 
-
-#rodape{
-    background-color: #a9a9a9;
-    position:absolute;
-    bottom:0;
-    width:100%;
+ul li a:hover{
+cursor: pointer;	
 }

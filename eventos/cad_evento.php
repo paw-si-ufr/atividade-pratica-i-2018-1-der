@@ -1,9 +1,8 @@
 <?php
    session_start();//iniciando sessao
 
-   if(isset($_GET['cancelar'])){ //isset: se existir
-      session_destroy();
-      header("Location: index.php");
+   if(isset($_GET['cancelar'])){ //isset: se existir   
+      header("Location: adm.php");
    }
 ?>
 

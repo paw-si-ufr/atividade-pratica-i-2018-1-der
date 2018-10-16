@@ -75,76 +75,82 @@
          
       </header>
 
-
-
-
-      <div class="container-fluid principal align-items-center">
-        
-        <div class="row align-items-center">
-          <div class="col-12">
-             <h5 class="p-5 text-center lead evt-recente">Minha conta <br>...</h5>
-          </div>         
-        </div>  
-        
-        <div class="row align-items-center">
-
-            <!-- Primeiro Bloco -->         
-            <div class="col">
-              <div class="card text-white bg-dark mb-3 card-menu" style="max-width: 25rem;">        
-                <div class="card-body">
-                  <img src="img/icone_menu-01.svg" width="70" height="70" alt="">
-                  <h5 class="card-title"><a href="index.php">Todos os eventos</h5>         
-                </div>
-              </div>
-            </div>
-
-            <!-- Segundo Bloco -->  
-            <div class="col">
-               <div class="card text-white bg-dark mb-3 card-menu" style="max-width: 25rem;">        
-                <div class="card-body">
-                  <img src="img/icone_menu-03.svg" width="70" height="70" alt="">
-                  <h5 class="card-title"><a class="endereco" href="cad_evento.php">Criar evento</a></h5>         
-                </div>
-              </div>
-            </div>
-
-            <!-- Terceiro Bloco --> 
-            <div class="col">
-              <div class="card text-white bg-dark mb-3 card-menu" style="max-width: 25rem;">        
-                <div class="card-body">
-                  
-                  <img src="img/icone_menu-04.svg" width="70" height="70" alt="">
-                  <h5 class="card-title"><a href="meus-eventos.php">Meus Eventos</h5>         
-                </div>
-              </div>
-            </div> 
-
-            <!-- Quarto Bloco -->
-            <div class="col">
-              <div class="card text-white bg-dark mb-3 card-menu" style="max-width: 25rem;">        
-                <div class="card-body">
-                  <img src="img/icone_menu-02.svg" width="70" height="70" alt="">
-                  <h5 class="card-title"><a href="eventos-inscritos.php">Eventos inscritos</h5>         
-                </div>
-              </div>
-            </div>
-        </div> 
- 
-     
+   <div class="col-12 text-center jumbotron">
+         <h5 class="jumbotron-heading lead">Minha conta</h5>
       </div>
 
+      <div class="album py-5">
+        <div class="container principal">
+          <div class="row"> 
+
+            <div class="col centralizar">
+              <div class="card mb-4 card-menu"> 
+              <button type="button" id="btn-adm-todos" class="card card-body"><p class="text-center lead "><img class="mb-4" src="img/telas-10.svg" width="90" height="90" alt=""></p>
+                  <p class="text-center lead ">Todos os Eventos</p></button>
+
+                </div>
+              </div>
+
+            <div class="col centralizar">
+              <div class="card mb-4 card-menu"> 
+              <button type="button" id="btn-adm-criar" class="card card-body"><p class="text-center lead "><img class="mb-4" src="img/telas-11.svg" width="90" height="90" alt=""></p>
+                  <p class="text-center lead ">Criar evento</p></button>
+
+                </div>
+              </div>
+            </div>
+
+          
+            <div class="row"> 
+             <div class="col centralizar">
+              <div class="card mb-4 card-menu"> 
+              <button type="button" id="btn-adm-meus" class="card card-body"><p class="text-center lead "><img class="mb-4" src="img/telas-12.svg" width="90" height="90" alt=""></p>
+                  <p class="text-center lead ">Meus Eventos</p></button>
+
+                </div>
+              </div>
+             <div class="col centralizar">
+              <div class="card mb-4 card-menu"> 
+              <button type="button" id="btn-adm-inscritos" class="card card-body"><p class="text-center lead "><img class="mb-4" src="img/telas-13.svg" width="90" height="90" alt=""></p>
+                  <p class="text-center lead ">Eventos inscritos</p></button>
+
+                </div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+<div class="row">
+            <div class="col-md-12">
+               <p class="p-5 text-center"> &copy; 2018</p>
+            </div>
+         </div>
+
+
+
+
+
+
+
+
+
+
+     
 
 
 
 
 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="css/index.css">  
+      <link rel="stylesheet" type="text/css" href="css/index.css">
+
       <script src="js/bootstrap.min.js"></script>                                 
       <script src="https://use.fontawesome.com/76758773b6.js"></script>   
       <script src="js/jquery-2.2.4.min.js"></script>               
       <script src="js/menu.js"></script>
-   
+      <script src="js/adm.js"></script> 
         
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
      

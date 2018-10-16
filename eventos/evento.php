@@ -46,7 +46,7 @@
                   <?php if(isset($_SESSION['logado'])){ ?>
                     <ul class="navbar-nav mr-rigth">
                <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bem vindo!</a>
+                   <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuário: <?php echo $_SESSION['nome_usuario'] ?></a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
                      <a class="dropdown-item" href="adm.php">Minha Conta</a>
                      <div class="dropdown-divider"></div>
@@ -76,28 +76,44 @@
       
    </header>
 
-
+<div class="container-fluid">
    <!-- Imagem do evento -->
-   <div class="row col-12" >
-      <img src="" class="rounded" width="304" height="236">
+   <div class="row topo-capa">
+     <div class="col-12">
+         <h3 class="p-5 text-center lead">IMAGEM DO EVENTO<br>...</h3>
+      </div>
    </div>
 
-   <div class="row col-12">
-      <h1 class="text-center"> </h1>
-      <p class="text-justify"> </p>    
+   <div class="row conteudo-principal">
+      <div class="col-12">
+        <h1 class="p-5 text-center lead">TITULO DO EVENTO</h1>
+      <p class="text-justify"> Lorem ipsum magna litora cras ligula pharetra senectus quam primis cursus litora risus quisque habitant volutpat mattis etiam mattis, potenti neque ut hendrerit viverra amet facilisis venenatis lobortis venenatis augue lectus vivamus neque quis iaculis. commodo litora tempus rutrum pulvinar ut justo luctus mattis, egestas faucibus quam in morbi varius. cras et tempor feugiat volutpat in ante enim integer, nunc hac turpis malesuada nunc quam rhoncus cursus, vulputate nec nisl sit lobortis placerat quis. vestibulum blandit sodales platea dictumst faucibus auctor, vehicula eleifend tempus tortor ullamcorper, ipsum sagittis ad convallis sem.</p> 
+      </div>
+         
+   </div>
+     <div class="row conteudo-principal">
+      <div class="col-12">
+         <p class=" text-left lead linha-divisao"><br>Local:</p>
+         <p class=" text-left lead">Data:</p>
+         <p class=" text-left lead">Hora:</p>
+         <p class=" text-left lead">Valor da inscrição:</p>
+         <p class=" text-left lead">Vagas disponíveis:</p><br>
+
+         <button class="btn btn-lg btn-success btn-block" type="submit">Cadastrar</button>
+      </div>
+
+
    </div>
 
-   <div id="rodape" class="row">
-         <div class="col-12">
-            <p class="p-5 text-center"> &copy; 2018 UFMT. Todos os direitos reservados.</p>
-         </div>
+   <div class="row topo-capa">
+     <div class="col-12">
+         <p class="p-5 text-center"> &copy; 2018</p>
+      </div>
    </div>
-   
-   
+</div>   
    
    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
    <link rel="stylesheet" type="text/css" href="css/evento.css">
-   <script src="js/botao.js"></script>
    <script src="js/bootstrap.min.js"></script> 
    <script src="js/jquery-2.2.4.min.js"></script>               
    <script src="js/menu.js"></script>      

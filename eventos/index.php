@@ -6,6 +6,10 @@
       session_destroy();
       header("Location: index.php");
    }
+   if(isset($_GET['palavra'])){ //isset: se existir
+      $p= $_GET['palavra'];
+         header("Location: busca.php?$p");
+   }
 ?>
 
 <!--Estrutura utilizando:
@@ -39,8 +43,8 @@
                  
                </ul>
                <div class="form-busca">
-                  <form class="form-busca-site">
-                     <input class="form-control mr-sm-2" type="text" name="palavra" placeholder="Buscar">
+                  <form class="form-busca-site" id="form-busca-index">
+                     <input id="palavra" class="form-control mr-sm-2" type="text" name="palavra" placeholder="Buscar">
                      <button class="btn-buscar-top" type="submit"></button>
                   </form>
                </div>
@@ -838,7 +842,7 @@
          </div>
          <div class="row">
             <div class="col-md-12">
-               <p class="p-5 text-center"> &copy; 2018 UFMT. Todo os direitos reservados.</p>
+               <p class="p-5 text-center"> &copy; 2018</p>
             </div>
          </div>
       </div>

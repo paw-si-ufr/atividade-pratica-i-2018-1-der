@@ -68,3 +68,7 @@ form {
 .row prox{
     background-color: cadetblue;
 }
+ul li a:hover{
+   
+    cursor: pointer;    
+}

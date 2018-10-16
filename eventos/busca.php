@@ -5,6 +5,8 @@
       session_destroy();
       header("Location: index.php");
    }
+  $pesquisa = $_GET['palavra'];
+
 ?>
 
 
@@ -36,18 +38,13 @@
                   </li>
                  
                </ul>
-               <div class="form-busca">
-                  <form class="form-busca-site" id="form-busca">
-                     <input id="palavra" class="form-control mr-sm-2" type="text" name="palavra" placeholder="Buscar">
-                     <button class="btn-buscar-top" type="submit"></button>
-                  </form>
-               </div>
+              
                <ul class="navbar-nav mr-rigth">                  
 
                      <?php if(isset($_SESSION['logado'])){ ?>
                        <ul class="navbar-nav mr-rigth">
                   <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bem vindo!</a>
+                      <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuário: <?php echo $_SESSION['nome_usuario'] ?></a>
                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="adm.php">Minha Conta</a>
                         <div class="dropdown-divider"></div>
@@ -79,13 +76,23 @@
 
 
       <div class="container-fluid principal">
+       
 
-      <div class="topo-principal">      
+
+
+      <div class="topo-principal"> 
+       
+          <div class="form-busca p-5">
+                  <form class="form-busca-site" id="form-busca">
+                     <input id="palavra" class="form-control mr-sm-2" type="text" name="palavra" placeholder="Buscar">
+                     <button class="btn-buscar-top" type="submit"></button>
+                  </form>
+               </div>   
          <h3 class="p-5 text-center lead ">Resultado da busca<br>...</h3>
       </div>
 
       <div id="dados">
-         Aqui inserir conteudo encontrado...
+         <!--AQUI VAI APARECER O CONTEUDO ENCONTRADO -->
       </div>
       
    </div><!-- container-fluid principal -->
@@ -108,7 +115,7 @@
 
         <div class="row">
             <div class="col-md-12">
-               <p class="p-5 text-center"> &copy; 2018 UFMT. Todo os direitos reservados.</p>
+               <p class="p-5 text-center"> &copy; 2018</p>
             </div>
          </div>
 

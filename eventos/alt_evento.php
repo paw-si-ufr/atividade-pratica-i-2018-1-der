@@ -7,6 +7,10 @@
    $result = mysqli_query($conn,"SELECT * FROM evento WHERE id = $id");
    $linha = mysqli_fetch_assoc($result);
 
+   if(isset($_GET['cancelar'])){ //isset: se existir   
+      header("Location: dados-meus-eventos.php");
+   }
+
 ?>
 
 

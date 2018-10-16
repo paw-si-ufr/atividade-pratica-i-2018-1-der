@@ -2,9 +2,9 @@
    session_start(); 
    include_once("conexao.php");
 
-   $nome = filter_input(INPUT_POST, 'user', FILTER_SANITIZE_STRING);
-   $rga = filter_input(INPUT_POST, 'rga', FILTER_SANITIZE_STRING);
-   $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
+   $nome = $_POST['user'] 
+   $rga = $_POST['rga'] 
+   $senha = $_POST['senha'] 
 
    //echo "Usuario: $usuario <br>";
    //echo "RGA: $rga <br>";
@@ -14,6 +14,7 @@
   $resultado_cad_usuario  = mysqli_query($conn , $resultado_cad_usuario);
 
   $_SESSION['logado'] = true;
-  header("Location: adm.php");
+  header("Location: login.php");
 
+ 
 ?>
