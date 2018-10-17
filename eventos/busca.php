@@ -5,7 +5,6 @@
       session_destroy();
       header("Location: index.php");
    }
-  $pesquisa = $_GET['palavra'];
 
 ?>
 
