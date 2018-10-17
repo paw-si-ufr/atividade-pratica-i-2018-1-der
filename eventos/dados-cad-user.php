@@ -2,9 +2,9 @@
    session_start(); 
    include_once("conexao.php");
 
-   $nome = $_POST['user'] 
-   $rga = $_POST['rga'] 
-   $senha = $_POST['senha'] 
+   $nome = $_POST['user']; 
+   $rga = $_POST['rga']; 
+   $senha = $_POST['senha']; 
 
    //echo "Usuario: $usuario <br>";
    //echo "RGA: $rga <br>";
